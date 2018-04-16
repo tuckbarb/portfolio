@@ -1,0 +1,304 @@
+/* Color Palette: leatherbound by nancythequilt
+http://www.colourlovers.com/palette/41095/leatherbound
+http://paletton.com/#uid=31N0S0kb3kI4Fut7Yp3dlfXjmde*/
+
+@font-face {
+    font-family: RabbidHighwaySign;
+    src: url('res/RabbidHighwaySign.otf');
+}
+
+@font-face {
+    font-family: Charis;
+    src: url('res/CharisSILB.ttf');
+}
+
+html, body{
+    height: 100%;
+    margin: 0;
+    font-family: Charis, serif;
+    font-weight: bold;
+    min-width: 900px;
+}
+
+.window-slide {
+    width:100%;
+    height:100%;
+    position:relative;
+}
+
+.greeting{
+  font-family: RabbidHighwaySign;
+  word-spacing:0.2em;
+  font-size:64px;
+  float:left;
+  line-height:1.25;
+}
+
+.title{
+  padding: 4%;
+  font-family: RabbidHighwaySign;
+  word-spacing:0.1em;
+  font-size:48px;
+}
+
+#landing-page {
+  background-color: #F3F1CF;
+  /*background-color: rgba(245, 244, 215, 0.4); */
+}
+
+
+#landing-page .greeting {
+  margin: 15% 80px;
+  text-shadow:0px 0px 5px #f3f1cf, 0 0 0 #000C;
+  color: rgba(105, 103, 42, 0.8);
+}
+
+#mountains {
+  width:75%;
+  min-width: 675px;
+  height:100%;
+  position:fixed;
+  right:0;
+  bottom:-15%;
+}
+
+#mountains img {
+  position:absolute;
+  width:100%;
+  right:0;
+  bottom:0;
+}
+
+#mountains div {
+  height:100%;
+  width:90%;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+#mountains #dry {
+  background-image:url("res/range.svg");
+  background-size: 100% auto;
+
+}
+
+#mountains #snowy{
+  background-image:url("res/range-alt.svg");
+  background-size: 100% auto;
+  height:0;
+  transition: height 0.02s;
+}
+
+#mountains #snow-mountain #sky {
+  position:absolute;
+  top:-75%;
+  width:100%;
+  right:-5%;
+  z-index:2;
+}
+
+#snow-page {
+  background-color: #8D94A2;
+}
+
+#snow-page .greeting {
+  margin-left: 80px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height:100%;
+  text-shadow:0px 0px 5px #8D94A2, 0 0 0 #000C;
+  color: rgba(32, 44, 70, 0.8);
+
+}
+
+#snow-page .greeting em{
+  font-style: normal;
+  color: #EEE;
+  text-shadow: 4px 4px #4C576E;
+}
+
+#about-page{
+  background-color: #C8C696;
+  color:#75444F;
+  text-align: center;
+}
+
+#about-page #from-header{
+  width:30%;
+  position:absolute;
+  left:8%;
+  top: 10%;
+}
+
+#about-page #maine-map{
+  width: 35%;
+  position: absolute;
+  top: 20%;
+  left: 25%;
+}
+
+#about-page ul{
+  list-style-type: none;
+  width: 35%;
+  margin: 10% 0 0 60%;
+  float: left;
+  text-align: left;
+}
+
+#about-page ul li{
+  padding:2%;
+  margin:5%;
+  background-color: #A5A36C;
+  border-radius: 10px;
+  box-shadow:#69672A 6px 6px 0px;
+  line-height: 1.2em;
+}
+
+#about-page ul li img{
+  height: 80px;
+  width: 80px;
+  padding: 10px;
+  margin: 20px 20px;
+  position: relative;
+  background-color: #C8C696;
+  border-radius: 50%;
+  box-shadow: #69672A 4px 4px 0px;
+
+}
+
+#about-page ul li em{
+  font-family:RabbidHighwaySign;
+}
+
+#about-page span{
+  position:absolute;
+  width:15%;
+  padding-top:20px;
+}
+
+#areas-page{
+  background-color: #353F55;
+  color:#FFF;
+  text-align: center;
+}
+
+#areas-page .title{
+  padding-bottom: 6%
+}
+
+#areas-page #graph-block{
+  background-color:#EEE;
+  background-image:url('res/grid.svg');
+  background-repeat: repeat;
+  width: 65%;
+  height: 45%;
+  position: absolute;
+  margin:auto;
+  left: 0;
+  right: 0;
+  box-shadow: inset 0.25em 0.25em 0.2em 0em #202C4680;
+}
+
+#areas-page #graph-block #y-axis{
+  position:absolute;
+  left: -12%;
+  top:0;
+  bottom:0;
+  margin:auto;
+}
+
+#areas-page #graph-block #x-axis{
+  position: absolute;
+  bottom: -25%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+}
+
+#areas-page #graph-block #plot{
+  width:100%;
+  height:auto;
+}
+
+#areas-page #graph-block .point{
+  position:absolute;
+  background-size:cover;
+  transform-origin:50% 50%;
+  height:120px;
+  width:120px;
+  transition: transform 0.4s;
+}
+
+#done-page{
+  background-color: #75444F;
+  color: #FFF;
+  text-align: center;
+}
+
+#done-page #project-shelf{
+  width:80%;
+  height:80%;
+  padding: 0 10%;
+}
+
+#done-page .project-item{
+  background-color: #98636F;
+  color: #FFF;
+  float: left;
+  position: relative;
+  width: 38%;
+  height: 35%;
+  margin: 1%;
+  padding: 0 5%;
+  overflow:hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  line-height: 1.2em;
+}
+
+#done-page .project-item .back{
+  width:100%;
+  height:100%;
+  position: absolute;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  opacity: 1;
+  background-size:cover;
+  z-index: 2;
+  transition: 0.5s ease;
+}
+
+#done-page .project-item:hover .back{
+  z-index: 0;
+  opacity:0.2;
+  width:120%;
+  height:120%;
+  left:-10%;
+  top:-10%;
+}
+
+#done-page .project-item h3{
+  position: relative;
+  z-index: 1;
+  display: block;
+  border-bottom:1px;
+  border-color:#FFF;
+  margin: 10px 50px;
+  padding:10px;
+  border-bottom: 2px #fff solid;
+  font-family:RabbidHighwaySign;
+}
+
+#done-page .project-item span{
+  position: relative;
+  z-index: 1;
+
+}
