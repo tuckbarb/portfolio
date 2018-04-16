@@ -138,7 +138,8 @@ class Content_Snow extends React.Component {
     return(
       <div className="greeting">
         <span>and I<br/>
-        like good<br/>
+        aspire to<br/>
+        make good<br/>
         <em>design</em>
         <br/>&amp; solid<br/>
         <em>code.</em></span>
@@ -374,7 +375,7 @@ class Content_Done extends React.Component {
         <div className = "title">What I&#39;ve Done</div>
         <div id = "project-shelf">
           <ProjectItem background="res/site-khandex.png" name="Khandex" link="http://khandex.nordituck.com">
-            A project I did many years ago, and revamped a few years after that. It indexes and allows you to search from user-created programs on from the site Khan Academy. Uses PHP/MySQL databases.
+            A project I did many years ago, and revamped a few years after that. It indexes and allows you to search from user-created programs from the site Khan Academy. Uses PHP/MySQL databases.
           </ProjectItem>
           <ProjectItem background="res/site-nordituck.png" name="nordituck.com" link="http://nordituck.com">
             A site I made to post things I made. Hasn&#39;t seen much action recently, but I redesigned a few years ago for fun. Displays each page with articles retrieved from a MySQL database.
