@@ -10,7 +10,7 @@ function getWorkingHeight(){
   return Math.max(window.innerHeight, MIN_WIN_HEIGHT, window.innerWidth * MIN_WIN_RATIO);
 }
 
-
+//Warn users of mobile limitations
 class MobileWarning extends React.Component {
   render(){
     if(window.innerWidth < window.innerHeight){
@@ -24,7 +24,6 @@ class MobileWarning extends React.Component {
         </div>
         );
     }
-
     return(null);
   }
 
@@ -197,21 +196,16 @@ class Content_From extends React.Component {
 
 class AreaPlotItem extends React.Component {
 
-
   constructor(props){
     super(props);
     
     this.state = {
       step:0,
-      size:0,
-      active:null
+      size:0
     }
-
   }
 
-
   grow(){
-    
     if(this.state.step < 3){
       this.setState({size:1});
       this.state.step++;
@@ -227,27 +221,22 @@ class AreaPlotItem extends React.Component {
   }
 
   render(){
-
     var pStyle = {
       //backgroundImage: this.props.pstyle.backgroundImage,
       bottom: this.props.pstyle.bottom,
       left: this.props.pstyle.left,
       transform: 'scale(' + this.state.size + ')'
-
     }
-
     return(
       <img src={this.props.src} className = "point" title={this.props.title} style={pStyle}/>
     );
   }
-
 }
 
 
 
 
 class Content_Areas extends React.Component {
-
 
   constructor(props){
     super(props);
@@ -288,13 +277,6 @@ class Content_Areas extends React.Component {
     }
     console.log(this.graph.data.length);
     this.graph.data.splice(0,1);
-
-
-
-    console.log(this.state.plots);
-
-
-
   }
 
   checkScroll(){
@@ -317,8 +299,6 @@ class Content_Areas extends React.Component {
   }
 
   render(){
-
-
     return(
       <Fragment>
         <div className = "title">
