@@ -11,6 +11,25 @@ function getWorkingHeight(){
 }
 
 
+class MobileWarning extends React.Component {
+  render(){
+    if(window.innerWidth < window.innerHeight){
+      console.error("Unfortunately, browser width/height is too small to effectively dispay content.");
+      return(
+        <div id="mobile-error">
+          <span>
+            <em>Aw, Shoot :(</em><br/>
+            This page works best on Desktop. Sorry for the inconvenience.
+          </span>
+        </div>
+        );
+    }
+
+    return(null);
+  }
+
+}
+
 
 class Slide extends React.Component {
 
@@ -380,6 +399,7 @@ class Portfolio extends React.Component {
 
     return (
       <div>
+        <MobileWarning/>
         <Slide id="landing-page">
           <Content_Landing/>
         </Slide>
