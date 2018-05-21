@@ -10,24 +10,6 @@ function getWorkingHeight(){
   return Math.max(window.innerHeight, MIN_WIN_HEIGHT, window.innerWidth * MIN_WIN_RATIO);
 }
 
-//Warn users of mobile limitations
-class MobileWarning extends React.Component {
-  render(){
-    if(window.innerWidth < window.innerHeight){
-      console.error("Unfortunately, browser width/height is too small to effectively dispay content.");
-      return(
-        <div id="mobile-error">
-          <span>
-            <em>Aw, Shoot :(</em><br/>
-            This page works best on Desktop. Sorry for the inconvenience.
-          </span>
-        </div>
-        );
-    }
-    return(null);
-  }
-
-}
 
 
 class Slide extends React.Component {
@@ -52,8 +34,12 @@ class Slide extends React.Component {
   }
 
   render() {
-    var style = {
-      height : this.state.height+"px"
+
+
+    var style = {};
+
+    if(this.props.type == "screen"){
+      style.height = this.state.height + "px";
     }
 
     return (
@@ -137,8 +123,7 @@ class Content_Snow extends React.Component {
     return(
       <div className="greeting">
         <span>and I<br/>
-        aspire to<br/>
-        make good<br/>
+        like good<br/>
         <em>design</em>
         <br/>&amp; solid<br/>
         <em>code.</em></span>
@@ -196,16 +181,21 @@ class Content_From extends React.Component {
 
 class AreaPlotItem extends React.Component {
 
+
   constructor(props){
     super(props);
     
     this.state = {
       step:0,
-      size:0
+      size:0,
+      active:null
     }
+
   }
 
+
   grow(){
+    
     if(this.state.step < 3){
       this.setState({size:1});
       this.state.step++;
@@ -221,22 +211,27 @@ class AreaPlotItem extends React.Component {
   }
 
   render(){
+
     var pStyle = {
       //backgroundImage: this.props.pstyle.backgroundImage,
       bottom: this.props.pstyle.bottom,
       left: this.props.pstyle.left,
       transform: 'scale(' + this.state.size + ')'
+
     }
+
     return(
       <img src={this.props.src} className = "point" title={this.props.title} style={pStyle}/>
     );
   }
+
 }
 
 
 
 
 class Content_Areas extends React.Component {
+
 
   constructor(props){
     super(props);
@@ -251,8 +246,8 @@ class Content_Areas extends React.Component {
       viewed:false,
       plotter:null,
       data:[
-        ['React', 'icons/react.svg', 5, 55],
-        ['C++', 'icons/cpp.svg', 20, 60],
+        ['React', 'icons/react.svg', 20, 50],
+        ['C++', 'icons/cpp.svg', 15, 60],
         ['PHP', 'icons/php.svg', 25, 10],
         ['Python', 'icons/py.svg', 35, 65],
         ['Java', 'icons/java.svg', 45, 10],
@@ -277,6 +272,13 @@ class Content_Areas extends React.Component {
     }
     console.log(this.graph.data.length);
     this.graph.data.splice(0,1);
+
+
+
+    console.log(this.state.plots);
+
+
+
   }
 
   checkScroll(){
@@ -299,6 +301,8 @@ class Content_Areas extends React.Component {
   }
 
   render(){
+
+
     return(
       <Fragment>
         <div className = "title">
@@ -355,16 +359,13 @@ class Content_Done extends React.Component {
         <div className = "title">What I&#39;ve Done</div>
         <div id = "project-shelf">
           <ProjectItem background="res/site-khandex.png" name="Khandex" link="http://khandex.nordituck.com">
-            A project I did many years ago, and revamped a few years after that. It indexes and allows you to search from user-created programs from the site Khan Academy. Uses PHP/MySQL databases.
-          </ProjectItem>
-          <ProjectItem background="res/site-nordituck.png" name="nordituck.com" link="http://nordituck.com">
-            A site I made to post things I made. Hasn&#39;t seen much action recently, but I redesigned a few years ago for fun. Displays each page with articles retrieved from a MySQL database.
-          </ProjectItem>
-          <ProjectItem background="res/site-singlesort.png" name="Single Sort Recycling" link="http://nordituck.com/r/single-sort">
-            An infographic-esqe page I made for a laid-back school project back in High School. Has some SVG animations and some pretty colors.
+            A project I did many years ago, and revamped a few years after that. It indexes and allows you to search from user-created programs on from the site Khan Academy. Uses PHP/MySQL databases.
           </ProjectItem>
           <ProjectItem background="res/site-mbhs.png" name="Mt Blue HS Site" link="http://mbhs.mtbluersd.org">
-            A redesign of the Mt Blue High School webpage. Not the most creatively liberated endeavor, being constrained by administrator request and the extremely limited space of Google Sites. Made some custom widgets and icons.
+            A complete redesign of the Mt Blue High School webpage. Not the most creatively liberated endeavor, being constrained by administrator request and the extremely limited space of Google Sites. Had a swell old time making some custom Google widgets and icons (site has seen some changes since my work on it).
+          </ProjectItem>
+          <ProjectItem background="res/site-cbb.png" name="'Professor Know-It-All'" link="https://github.com/irajwani/cbbhackathon">
+            An app and webservice concept developed over 36 hours at the CBB Hackathon. The app is written in React Native, with the server-side processing done with Google Cloud API, and the web dashboard in ReactJS. I worked in a team and managed the GCPAPI and web dash.
           </ProjectItem>
         </div>
       </Fragment>
@@ -380,22 +381,21 @@ class Portfolio extends React.Component {
 
     return (
       <div>
-        <MobileWarning/>
-        <Slide id="landing-page">
+        <Slide type="screen" id="landing-page">
           <Content_Landing/>
         </Slide>
 
-        <Slide id="snow-page">
+        <Slide type="screen" id="snow-page">
           <Content_Snow/>
         </Slide>
 
         <Mountains />
 
-        <Slide id="about-page">
+        <Slide type="screen" id="about-page">
           <Content_From/>
         </Slide>
 
-        <Slide id="areas-page">
+        <Slide type="screen" id="areas-page">
           <Content_Areas/>
         </Slide>
 
